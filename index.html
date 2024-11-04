@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/style.css" />
+        <title>Bài Tập Javascript Buổi 5</title>
+    </head>
+    <body>
+        <div class="ex__list">
+            <div class="ex__item">
+                <h1>Bài 1: Quản lý tuyển sinh</h1>
+                <div class="ex__input">
+                    <input
+                        class="txtInput"
+                        id="txtDiemChuan"
+                        type="number"
+                        placeholder="Điểm chuẩn"
+                    />
+                    <select name="chooseArea" id="chooseArea" class="txtInput">
+                        <option value="value1">Chọn khu vực</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                    </select>
+                    <select
+                        name="chooseObject"
+                        id="chooseObject"
+                        class="txtInput"
+                    >
+                        <option value="value1">Chọn đối tượng</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <input
+                        class="txtInput"
+                        id="txtDiemMonThu1"
+                        type="number"
+                        placeholder="Điểm môn thứ 1"
+                    />
+                    <input
+                        class="txtInput"
+                        id="txtDiemMonThu2"
+                        type="number"
+                        placeholder="Điểm môn thứ 2"
+                    />
+                    <input
+                        class="txtInput"
+                        id="txtDiemMonThu3"
+                        type="number"
+                        placeholder="Điểm môn thứ 3"
+                    />
+                </div>
+                <button class="btnShow" id="btnKetQua">Kết Quả</button>
+                <p class="showResult" id="ketQua"></p>
+            </div>
+
+            <div class="ex__item">
+                <h1>Bài 2: Tính tiền điện</h1>
+                <div class="ex__input">
+                    <input
+                        class="txtInput"
+                        id="fullNameB2"
+                        type="text"
+                        placeholder="Nhập họ tên"
+                    />
+                    <input
+                        class="txtInput"
+                        id="kwNumber"
+                        type="number"
+                        placeholder="Nhập số kw"
+                    />
+                </div>
+                <button class="btnShow" id="btnTinhTienDien">
+                    Tính tiền điện
+                </button>
+                <p class="showResult" id="showTinhTienDien"></p>
+            </div>
+
+            <div class="ex__item">
+                <h1>Bài 3: Tính thuế thu nhập cá nhân</h1>
+                <div class="ex__input">
+                    <input
+                        class="txtInput"
+                        id="fullNameB3"
+                        type="text"
+                        placeholder="Nhập họ tên"
+                    />
+                </div>
+                <div class="ex__input">
+                    <input
+                        class="txtInput"
+                        id="txtTongThuNhapNam"
+                        type="number"
+                        placeholder="Tổng thu nhập năm"
+                    />
+                </div>
+                <div class="ex__input">
+                    <input
+                        class="txtInput"
+                        id="txtSoNguoiPhuThuoc"
+                        type="number"
+                        placeholder="Số người phụ thuộc"
+                    />
+                </div>
+                <button class="btnShow" id="btnTinhTienThue">
+                    Tính tiền thuế
+                </button>
+                <p class="showResult" id="showTinhTienThue"></p>
+            </div>
+
+            <div class="ex__item">
+                <h1>Bài 4: Tính tiền cáp</h1>
+                <div class="ex__input">
+                    <select
+                        name="chooseCustomer"
+                        id="chooseCustomer"
+                        class="txtInput"
+                    >
+                        <option value="value1">Chọn loại khách hàng</option>
+                        <option value="nhaDan">Nhà Dân</option>
+                        <option value="doanhNghiep">Doanh Nghiep</option>
+                    </select>
+                    <input
+                        class="txtInput"
+                        id="txtMaKhachHang"
+                        type="text"
+                        placeholder="Nhập mã khách hàng"
+                    />
+                    <input
+                        class="txtInput"
+                        id="txtSoKenhCaoCap"
+                        type="number"
+                        placeholder="Số kênh cao cấp"
+                    />
+                    <input
+                        class="txtInput offInput"
+                        id="txtSoKetNoi"
+                        type="number"
+                        placeholder="Số kết nối"
+                    />
+                </div>
+                <button class="btnShow" id="btnTinhTienCap">
+                    Tính tiền cáp
+                </button>
+                <p class="showResult" id="showTinhTienCap"></p>
+            </div>
+        </div>
+
+        <script src="./js/baitap1.js"></script>
+        <script src="./js/baitap2.js"></script>
+        <script src="./js/baitap3.js"></script>
+        <script src="./js/baitap4.js"></script>
+    </body>
+</html>
