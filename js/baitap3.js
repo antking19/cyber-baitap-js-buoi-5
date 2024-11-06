@@ -1,63 +1,69 @@
-// function tinhThueThuNhapCaNhan(hoTen, tongThuNhapNam, soNguoiPhuThuoc) {
-//     // Tính thu nhập chịu thuế
-//     const thuNhapChiuThue =
-//         tongThuNhapNam - 4000000 - soNguoiPhuThuoc * 1600000;
-//     let thuePhaiTra = 0;
+/**
+ * Bài 1: Tính thuế thu nhập cá nhân
+ * Mô hình 3 khối
+ * ** Đầu vào
+ *  - Khai báo biến txtTongThuNhapNam (tổng thu nhập năm)
+ *  - Khai báo biến txtSoNguoiPhuThuoc (Số người phụ thuộc)
+ *  - Tạo biến tienThue để chứa tiền thuế thu nhập cá nhân
+ *
+ * ** Xử lý
+ *  - Tạo biến thuNhapChiuThue và tính bằng công thức được ho
+ *      -> Thu nhập chịu thuế = Tổng thu nhập năm - 4tr- Số người phụ thuộc * 1.6tr
+ *  - Phân chia từng mức rồi tính
+ *      -> tổng thu nhập năm > 0 và tổng thu nhập năm <= 60 thì nhân cho 0.05
+ *      -> tổng thu nhập năm > 60 và tổng thu nhập năm <= 120 thì nhân cho 0.1
+ *      -> tổng thu nhập năm > 120 và tổng thu nhập năm <= 210 thì nhân cho 0.15
+ *      -> tổng thu nhập năm > 210 và tổng thu nhập năm <= 384 thì nhân cho 0.2
+ *      -> tổng thu nhập năm > 384 và tổng thu nhập năm <= 624 thì nhân cho 0.25
+ *      -> tổng thu nhập năm > 624 và tổng thu nhập năm <= 960 thì nhân cho 0.3
+ *      -> tổng thu nhập năm > 960 thì nhân cho 0.35
+ *
+ * ** Đầu ra
+ *  - Xuất kết quả ra màn hình
+ */
 
-//     // Tính thuế dựa trên thu nhập chịu thuế
-//     if (thuNhapChiuThue <= 60000000) {
-//         thuePhaiTra = thuNhapChiuThue * 0.05;
-//     } else if (thuNhapChiuThue <= 120000000) {
-//         thuePhaiTra = 60000000 * 0.05 + (thuNhapChiuThue - 60000000) * 0.1;
-//     } else if (thuNhapChiuThue <= 210000000) {
-//         thuePhaiTra =
-//             60000000 * 0.05 +
-//             60000000 * 0.1 +
-//             (thuNhapChiuThue - 120000000) * 0.15;
-//     } else if (thuNhapChiuThue <= 384000000) {
-//         thuePhaiTra =
-//             60000000 * 0.05 +
-//             60000000 * 0.1 +
-//             90000000 * 0.15 +
-//             (thuNhapChiuThue - 210000000) * 0.2;
-//     } else if (thuNhapChiuThue <= 624000000) {
-//         thuePhaiTra =
-//             60000000 * 0.05 +
-//             60000000 * 0.1 +
-//             90000000 * 0.15 +
-//             174000000 * 0.2 +
-//             (thuNhapChiuThue - 384000000) * 0.25;
-//     } else if (thuNhapChiuThue <= 960000000) {
-//         thuePhaiTra =
-//             60000000 * 0.05 +
-//             60000000 * 0.1 +
-//             90000000 * 0.15 +
-//             174000000 * 0.2 +
-//             240000000 * 0.25 +
-//             (thuNhapChiuThue - 624000000) * 0.3;
-//     } else {
-//         thuePhaiTra =
-//             60000000 * 0.05 +
-//             60000000 * 0.1 +
-//             90000000 * 0.15 +
-//             174000000 * 0.2 +
-//             240000000 * 0.25 +
-//             336000000 * 0.3 +
-//             (thuNhapChiuThue - 960000000) * 0.35;
-//     }
+const btnTinhTienThue = document.getElementById("btnTinhTienThue");
+btnTinhTienThue.onclick = function () {
+    const fullNameB3 = document.getElementById("fullNameB3").value;
+    const showTinhTienThue = document.getElementById("showTinhTienThue");
+    const txtTongThuNhapNam =
+        document.getElementById("txtTongThuNhapNam").value * 1;
+    const txtSoNguoiPhuThuoc =
+        document.getElementById("txtSoNguoiPhuThuoc").value * 1;
 
-//     console.log(`Họ tên: ${hoTen}`);
-//     console.log(`Tổng thu nhập năm: ${tongThuNhapNam} VND`);
-//     console.log(`Số người phụ thuộc: ${soNguoiPhuThuoc}`);
-//     console.log(
-//         `Thu nhập chịu thuế: ${thuNhapChiuThue > 0 ? thuNhapChiuThue : 0} VND`
-//     );
-//     console.log(
-//         `Thuế thu nhập cá nhân phải trả: ${
-//             thuePhaiTra > 0 ? thuePhaiTra : 0
-//         } VND`
-//     );
-// }
+    const thuNhapChiuThue =
+        txtTongThuNhapNam - 4000000 - txtSoNguoiPhuThuoc * 1600000;
 
-// // Ví dụ chạy chương trình
-// tinhThueThuNhapCaNhan("Nguyen Van A", 500000000, 2);
+    let tienThue = 0;
+    if (txtTongThuNhapNam > 0) {
+        tienThue = thuNhapChiuThue * 0.05;
+    }
+    if (txtTongThuNhapNam > 60000000) {
+        tienThue = thuNhapChiuThue * 0.1;
+    }
+    if (txtTongThuNhapNam > 120000000) {
+        tienThue = thuNhapChiuThue * 0.15;
+    }
+    if (txtTongThuNhapNam > 210000000) {
+        tienThue = thuNhapChiuThue * 0.2;
+    }
+    if (txtTongThuNhapNam > 210000000) {
+        tienThue = thuNhapChiuThue * 0.2;
+    }
+    if (txtTongThuNhapNam > 384000000) {
+        tienThue = thuNhapChiuThue * 0.25;
+    }
+    if (txtTongThuNhapNam > 624000000) {
+        tienThue = thuNhapChiuThue * 0.3;
+    }
+    if (txtTongThuNhapNam > 960000000) {
+        tienThue = thuNhapChiuThue * 0.35;
+    }
+
+    if (tienThue < 0) {
+        alert("Số tiền thu nhập không hợp lệ");
+    } else {
+        const result = `👉Họ tên: ${fullNameB3}; Tiền thuế thu nhập cá nhân: ${tienThue.toLocaleString()} VND`;
+        showTinhTienThue.innerHTML = result;
+    }
+};
